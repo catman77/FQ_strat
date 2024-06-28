@@ -1,0 +1,34 @@
+{
+  "strategy_name": "InnovativeReversalStrategy",
+  "params": {
+    "max_open_trades": {
+      "max_open_trades": 8
+    },
+    "buy": {
+      "irm_threshold_high": 2.176,
+      "leverage_input_buy": 3.485
+    },
+    "sell": {
+      "irm_threshold_low": -2.488,
+      "leverage_input_sell": 9.668
+    },
+    "protection": {},
+    "roi": {
+      "0": 0.427,
+      "413": 0.182,
+      "1132": 0.088,
+      "1704": 0
+    },
+    "stoploss": {
+      "stoploss": -0.243
+    },
+    "trailing": {
+      "trailing_stop": true,
+      "trailing_stop_positive": 0.198,
+      "trailing_stop_positive_offset": 0.251,
+      "trailing_only_offset_is_reached": true
+    }
+  },
+  "ft_stratparam_v": 1,
+  "export_time": "2024-06-28 00:58:00.057884+00:00"
+}
