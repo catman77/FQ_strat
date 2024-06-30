@@ -1,0 +1,28 @@
+{
+  "strategy_name": "EI3v2_tag_cofi_green_Short",
+  "params": {
+    "max_open_trades": {
+      "max_open_trades": 8
+    },
+    "buy": {},
+    "sell": {},
+    "protection": {},
+    "roi": {
+      "0": 0.10500000000000001,
+      "40": 0.082,
+      "65": 0.02,
+      "85": 0
+    },
+    "stoploss": {
+      "stoploss": -0.348
+    },
+    "trailing": {
+      "trailing_stop": true,
+      "trailing_stop_positive": 0.241,
+      "trailing_stop_positive_offset": 0.242,
+      "trailing_only_offset_is_reached": false
+    }
+  },
+  "ft_stratparam_v": 1,
+  "export_time": "2024-06-30 21:29:07.674724+00:00"
+}
