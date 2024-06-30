@@ -30,8 +30,8 @@ def EWO(dataframe, ema_length=5, ema2_length=3):
 
 
 
-class EI3v2_tag_cofi_green_2(IStrategy):
-    INTERFACE_VERSION = 2
+class EI3v2_tag_cofi_green_Long(IStrategy):
+    INTERFACE_VERSION = 3
     """
     # ROI table:
     minimal_roi = {
@@ -43,10 +43,11 @@ class EI3v2_tag_cofi_green_2(IStrategy):
         "202": -1
     }
     """
+    can_short = False
     # Buy hyperspace params:
-    buy_params = {
-        "base_nb_candles_buy": 12,
-        "rsi_buy": 58,
+    enter_long_params = {
+        "base_nb_candles_enter_long": 12,
+        "rsi_enter_long": 58,
         "ewo_high": 3.001,
         "ewo_low": -10.289,
         "low_offset": 0.987,
@@ -54,16 +55,16 @@ class EI3v2_tag_cofi_green_2(IStrategy):
         "lambo2_enabled": True,
         "lambo2_rsi_14_limit": 39,
         "lambo2_rsi_4_limit": 44,
-        "buy_adx": 20,
-        "buy_fastd": 20,
-        "buy_fastk": 22,
-        "buy_ema_cofi": 0.98,
-        "buy_ewo_high": 4.179
+        "enter_long_adx": 20,
+        "enter_long_fastd": 20,
+        "enter_long_fastk": 22,
+        "enter_long_ema_cofi": 0.98,
+        "enter_long_ewo_high": 4.179
     }
 
     # Sell hyperspace params:
-    sell_params = {
-        "base_nb_candles_sell": 22,
+    exit_long_params = {
+        "base_nb_candles_exit_long": 22,
         "high_offset": 1.014,
         "high_offset_2": 1.01
     }
@@ -115,24 +116,24 @@ class EI3v2_tag_cofi_green_2(IStrategy):
     stoploss = -0.99
 
     # SMAOffset
-    base_nb_candles_buy = IntParameter(8, 20, default=buy_params['base_nb_candles_buy'], space='buy', optimize=False)
-    base_nb_candles_sell = IntParameter(8, 20, default=sell_params['base_nb_candles_sell'], space='sell', optimize=False)
-    low_offset = DecimalParameter(0.985, 0.995, default=buy_params['low_offset'], space='buy', optimize=True)
-    high_offset = DecimalParameter(1.005, 1.015, default=sell_params['high_offset'], space='sell', optimize=True)
-    high_offset_2 = DecimalParameter(1.010, 1.020, default=sell_params['high_offset_2'], space='sell', optimize=True)
+    base_nb_candles_enter_long = IntParameter(8, 20, default=enter_long_params['base_nb_candles_enter_long'], space='enter_long', optimize=False)
+    base_nb_candles_exit_long = IntParameter(8, 20, default=exit_long_params['base_nb_candles_exit_long'], space='exit_long', optimize=False)
+    low_offset = DecimalParameter(0.985, 0.995, default=enter_long_params['low_offset'], space='enter_long', optimize=True)
+    high_offset = DecimalParameter(1.005, 1.015, default=exit_long_params['high_offset'], space='exit_long', optimize=True)
+    high_offset_2 = DecimalParameter(1.010, 1.020, default=exit_long_params['high_offset_2'], space='exit_long', optimize=True)
 
     # lambo2
-    lambo2_ema_14_factor = DecimalParameter(0.8, 1.2, decimals=3,  default=buy_params['lambo2_ema_14_factor'], space='buy', optimize=True)
-    lambo2_rsi_4_limit = IntParameter(5, 60, default=buy_params['lambo2_rsi_4_limit'], space='buy', optimize=True)
-    lambo2_rsi_14_limit = IntParameter(5, 60, default=buy_params['lambo2_rsi_14_limit'], space='buy', optimize=True)
+    lambo2_ema_14_factor = DecimalParameter(0.8, 1.2, decimals=3,  default=enter_long_params['lambo2_ema_14_factor'], space='enter_long', optimize=True)
+    lambo2_rsi_4_limit = IntParameter(5, 60, default=enter_long_params['lambo2_rsi_4_limit'], space='enter_long', optimize=True)
+    lambo2_rsi_14_limit = IntParameter(5, 60, default=enter_long_params['lambo2_rsi_14_limit'], space='enter_long', optimize=True)
 
     # Protection
     fast_ewo = 50
     slow_ewo = 200
 
-    ewo_low = DecimalParameter(-20.0, -8.0,default=buy_params['ewo_low'], space='buy', optimize=True)
-    ewo_high = DecimalParameter(3.0, 3.4, default=buy_params['ewo_high'], space='buy', optimize=True)
-    rsi_buy = IntParameter(30, 70, default=buy_params['rsi_buy'], space='buy', optimize=False)
+    ewo_low = DecimalParameter(-20.0, -8.0,default=enter_long_params['ewo_low'], space='enter_long', optimize=True)
+    ewo_high = DecimalParameter(3.0, 3.4, default=enter_long_params['ewo_high'], space='enter_long', optimize=True)
+    rsi_enter_long = IntParameter(30, 70, default=enter_long_params['rsi_enter_long'], space='enter_long', optimize=False)
 
     # Trailing stop:
     trailing_stop = True
@@ -142,11 +143,11 @@ class EI3v2_tag_cofi_green_2(IStrategy):
 
     #cofi
     is_optimize_cofi = False
-    buy_ema_cofi = DecimalParameter(0.96, 0.98, default=0.97 , optimize = is_optimize_cofi)
-    buy_fastk = IntParameter(20, 30, default=20, optimize = is_optimize_cofi)
-    buy_fastd = IntParameter(20, 30, default=20, optimize = is_optimize_cofi)
-    buy_adx = IntParameter(20, 30, default=30, optimize = is_optimize_cofi)
-    buy_ewo_high = DecimalParameter(2, 12, default=3.553, optimize = is_optimize_cofi)
+    enter_long_ema_cofi = DecimalParameter(0.96, 0.98, default=0.97 , optimize = is_optimize_cofi)
+    enter_long_fastk = IntParameter(20, 30, default=20, optimize = is_optimize_cofi)
+    enter_long_fastd = IntParameter(20, 30, default=20, optimize = is_optimize_cofi)
+    enter_long_adx = IntParameter(20, 30, default=30, optimize = is_optimize_cofi)
+    enter_long_ewo_high = DecimalParameter(2, 12, default=3.553, optimize = is_optimize_cofi)
     
 
     # Sell signal
@@ -157,8 +158,8 @@ class EI3v2_tag_cofi_green_2(IStrategy):
 
     ## Optional order time in force.
     order_time_in_force = {
-        'entry': 'gtc',
-        'exit': 'gtc'
+        'buy': 'gtc',
+        'sell': 'gtc'
     }
 
     # Optimal timeframe for the strategy
@@ -170,8 +171,8 @@ class EI3v2_tag_cofi_green_2(IStrategy):
 
     plot_config = {
         'main_plot': {
-            'ma_buy': {'color': 'orange'},
-            'ma_sell': {'color': 'orange'},
+            'ma_enter_long': {'color': 'orange'},
+            'ma_exit_long': {'color': 'orange'},
         },
     }
 
@@ -186,10 +187,10 @@ class EI3v2_tag_cofi_green_2(IStrategy):
         pairs = self.dp.current_whitelist()
         informative_pairs = [(pair, '1h') for pair in pairs]
 
-        if self.config['stake_currency'] in ['USDC','BUSD','USDC','DAI','TUSD','PAX','USD','EUR','GBP']:
+        if self.config['stake_currency'] in ['USDC:USDC','BUSD','USDC','DAI','TUSD','PAX','USD','EUR','GBP']:
             btc_info_pair = f"BTC/{self.config['stake_currency']}"
         else:
-            btc_info_pair = "BTC/USDC"
+            btc_info_pair = "BTC/USDC:USDC"
 
         informative_pairs.append((btc_info_pair, self.timeframe))
         informative_pairs.append((btc_info_pair, self.inf_1h))
@@ -241,7 +242,7 @@ class EI3v2_tag_cofi_green_2(IStrategy):
 
     def populate_indicators(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
 
-        if self.config['stake_currency'] in ['USDC','BUSD']:
+        if self.config['stake_currency'] in ['USDC:USDC','BUSD']:
             btc_info_pair = f"BTC/{self.config['stake_currency']}"
         else:
             btc_info_pair = "BTC/USDC"
@@ -260,12 +261,12 @@ class EI3v2_tag_cofi_green_2(IStrategy):
 
 
         # Calculate all ma_buy values
-        for val in self.base_nb_candles_buy.range:
-            dataframe[f'ma_buy_{val}'] = ta.EMA(dataframe, timeperiod=val)
+        for val in self.base_nb_candles_enter_long.range:
+            dataframe[f'ma_enter_long_{val}'] = ta.EMA(dataframe, timeperiod=val)
 
         # Calculate all ma_sell values
-        for val in self.base_nb_candles_sell.range:
-            dataframe[f'ma_sell_{val}'] = ta.EMA(dataframe, timeperiod=val)
+        for val in self.base_nb_candles_exit_long.range:
+            dataframe[f'ma_exit_long_{val}'] = ta.EMA(dataframe, timeperiod=val)
 
         dataframe['hma_50'] = qtpylib.hull_moving_average(dataframe['close'], window=50)
 
@@ -305,7 +306,7 @@ class EI3v2_tag_cofi_green_2(IStrategy):
 
     def populate_entry_trend(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
         conditions = []
-        dataframe.loc[:, 'entry_tag'] = ''
+        dataframe.loc[:, 'enter_tag'] = ''
 
         lambo2 = (
             #bool(self.lambo2_enabled.value) &
@@ -314,39 +315,39 @@ class EI3v2_tag_cofi_green_2(IStrategy):
             (dataframe['rsi_4'] < int(self.lambo2_rsi_4_limit.value)) &
             (dataframe['rsi_14'] < int(self.lambo2_rsi_14_limit.value))
         )
-        dataframe.loc[lambo2, 'entry_tag'] += 'lambo2_'
+        dataframe.loc[lambo2, 'enter_tag'] += 'lambo2_'
         conditions.append(lambo2)
 
         buy1ewo = (
                 (dataframe['rsi_fast'] <35)&
-                (dataframe['close'] < (dataframe[f'ma_buy_{self.base_nb_candles_buy.value}'] * self.low_offset.value)) &
+                (dataframe['close'] < (dataframe[f'ma_enter_long_{self.base_nb_candles_enter_long.value}'] * self.low_offset.value)) &
                 (dataframe['EWO'] > self.ewo_high.value) &
-                (dataframe['rsi'] < self.rsi_buy.value) &
+                (dataframe['rsi'] < self.rsi_enter_long.value) &
                 (dataframe['volume'] > 0)&
-                (dataframe['close'] < (dataframe[f'ma_sell_{self.base_nb_candles_sell.value}'] * self.high_offset.value))
+                (dataframe['close'] < (dataframe[f'ma_exit_long_{self.base_nb_candles_exit_long.value}'] * self.high_offset.value))
         )
-        dataframe.loc[buy1ewo, 'entry_tag'] += 'buy1eworsi_'
+        dataframe.loc[buy1ewo, 'enter_tag'] += 'buy1eworsi_'
         conditions.append(buy1ewo)
 
         buy2ewo = (
                 (dataframe['rsi_fast'] < 35)&
-                (dataframe['close'] < (dataframe[f'ma_buy_{self.base_nb_candles_buy.value}'] * self.low_offset.value)) &
+                (dataframe['close'] < (dataframe[f'ma_enter_long_{self.base_nb_candles_enter_long.value}'] * self.low_offset.value)) &
                 (dataframe['EWO'] < self.ewo_low.value) &
                 (dataframe['volume'] > 0)&
-                (dataframe['close'] < (dataframe[f'ma_sell_{self.base_nb_candles_sell.value}'] * self.high_offset.value))
+                (dataframe['close'] < (dataframe[f'ma_exit_long_{self.base_nb_candles_exit_long.value}'] * self.high_offset.value))
         )
-        dataframe.loc[buy2ewo, 'entry_tag'] += 'buy2ewo_'
+        dataframe.loc[buy2ewo, 'enter_tag'] += 'buy2ewo_'
         conditions.append(buy2ewo)
 
         is_cofi = (
-                (dataframe['open'] < dataframe['ema_8'] * self.buy_ema_cofi.value) &
+                (dataframe['open'] < dataframe['ema_8'] * self.enter_long_ema_cofi.value) &
                 (qtpylib.crossed_above(dataframe['fastk'], dataframe['fastd'])) &
-                (dataframe['fastk'] < self.buy_fastk.value) &
-                (dataframe['fastd'] < self.buy_fastd.value) &
-                (dataframe['adx'] > self.buy_adx.value) &
-                (dataframe['EWO'] > self.buy_ewo_high.value)
+                (dataframe['fastk'] < self.enter_long_fastk.value) &
+                (dataframe['fastd'] < self.enter_long_fastd.value) &
+                (dataframe['adx'] > self.enter_long_adx.value) &
+                (dataframe['EWO'] > self.enter_long_ewo_high.value)
             )
-        dataframe.loc[is_cofi, 'entry_tag'] += 'cofi_'
+        dataframe.loc[is_cofi, 'enter_tag'] += 'cofi_'
         conditions.append(is_cofi)
 
         if conditions:
@@ -356,16 +357,16 @@ class EI3v2_tag_cofi_green_2(IStrategy):
             ]=1
 
 
-        dont_entry_conditions = []
+        dont_enter_long_conditions = []
 
         # don't buy if there seems to be a Pump and Dump event.
-        dont_entry_conditions.append((dataframe['pnd_volume_warn'] < 0.0))
+        dont_enter_long_conditions.append((dataframe['pnd_volume_warn'] < 0.0))
 
         # BTC price protection
-        dont_entry_conditions.append((dataframe['btc_rsi_8_1h'] < 35.0))
+        dont_enter_long_conditions.append((dataframe['btc_rsi_8_1h'] < 35.0))
 
-        if dont_entry_conditions:
-            for condition in dont_entry_conditions:
+        if dont_enter_long_conditions:
+            for condition in dont_enter_long_conditions:
                 dataframe.loc[condition, 'enter_long'] = 0
 
         return dataframe
@@ -377,7 +378,7 @@ class EI3v2_tag_cofi_green_2(IStrategy):
 
         conditions.append(
             (   (dataframe['close']>dataframe['hma_50'])&
-                (dataframe['close'] > (dataframe[f'ma_sell_{self.base_nb_candles_sell.value}'] * self.high_offset_2.value)) &
+                (dataframe['close'] > (dataframe[f'ma_exit_long_{self.base_nb_candles_exit_long.value}'] * self.high_offset_2.value)) &
                 (dataframe['rsi']>50)&
                 (dataframe['volume'] > 0)&
                 (dataframe['rsi_fast']>dataframe['rsi_slow'])
@@ -386,7 +387,7 @@ class EI3v2_tag_cofi_green_2(IStrategy):
             |
             (
                 (dataframe['close']<dataframe['hma_50'])&
-                (dataframe['close'] > (dataframe[f'ma_sell_{self.base_nb_candles_sell.value}'] * self.high_offset.value)) &
+                (dataframe['close'] > (dataframe[f'ma_exit_long_{self.base_nb_candles_exit_long.value}'] * self.high_offset.value)) &
                 (dataframe['volume'] > 0)&
                 (dataframe['rsi_fast']>dataframe['rsi_slow'])
             )
@@ -404,7 +405,7 @@ class EI3v2_tag_cofi_green_2(IStrategy):
     def confirm_trade_exit(self, pair: str, trade: Trade, order_type: str, amount: float,
                            rate: float, time_in_force: str, exit_reason: str,
                            current_time: datetime, **kwargs) -> bool:
-
+        
         trade.exit_reason = exit_reason + "_" + trade.enter_tag
 
         return True
@@ -412,7 +413,7 @@ class EI3v2_tag_cofi_green_2(IStrategy):
 def pct_change(a, b):
     return (b - a) / a
 
-class EI3v2_tag_cofi_dca_green(EI3v2_tag_cofi_green):
+class EI3v2_tag_cofi_dca_green_Future_Long(EI3v2_tag_cofi_green_Future_Long):
    
 
     initial_safety_order_trigger = -0.018
@@ -420,14 +421,14 @@ class EI3v2_tag_cofi_dca_green(EI3v2_tag_cofi_green):
     safety_order_step_scale = 1.2
     safety_order_volume_scale = 1.4
 
-    buy_params = {
+    enter_long_params = {
         "dca_min_rsi": 35,
     }
 
     # append buy_params of parent class
-    buy_params.update(EI3v2_tag_cofi_green.buy_params)
+    enter_long_params.update(EI3v2_tag_cofi_green_Future_Long.enter_long_params)
 
-    dca_min_rsi = IntParameter(35, 75, default=buy_params['dca_min_rsi'], space='buy', optimize=True)
+    dca_min_rsi = IntParameter(35, 75, default=enter_long_params['dca_min_rsi'], space='enter_long', optimize=True)
 
     def populate_indicators(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
         dataframe = super().populate_indicators(dataframe, metadata)

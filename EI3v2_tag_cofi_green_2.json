@@ -11,13 +11,13 @@
       "buy_ewo_high": 4.179,
       "buy_fastd": 20,
       "buy_fastk": 22,
-      "rsi_buy": 58,
       "ewo_high": 3.151,
       "ewo_low": -19.963,
       "lambo2_ema_14_factor": 0.928,
       "lambo2_rsi_14_limit": 32,
       "lambo2_rsi_4_limit": 54,
-      "low_offset": 0.995
+      "low_offset": 0.995,
+      "rsi_buy": 58
     },
     "sell": {
       "base_nb_candles_sell": 22,
@@ -26,21 +26,21 @@
     },
     "protection": {},
     "roi": {
-      "0": 0.29200000000000004,
-      "20": 0.10300000000000001,
-      "74": 0.039,
-      "118": 0
+      "0": 0.30500000000000005,
+      "20": 0.10500000000000001,
+      "58": 0.035,
+      "102": 0
     },
     "stoploss": {
-      "stoploss": -0.247
+      "stoploss": -0.05
     },
     "trailing": {
       "trailing_stop": true,
-      "trailing_stop_positive": 0.242,
-      "trailing_stop_positive_offset": 0.305,
+      "trailing_stop_positive": 0.337,
+      "trailing_stop_positive_offset": 0.42300000000000004,
       "trailing_only_offset_is_reached": false
     }
   },
   "ft_stratparam_v": 1,
-  "export_time": "2024-06-30 18:59:13.328469+00:00"
+  "export_time": "2024-06-30 20:47:06.688288+00:00"
 }
