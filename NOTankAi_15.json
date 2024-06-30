@@ -5,11 +5,11 @@
       "max_open_trades": 8
     },
     "buy": {
-      "increment": 1.0009,
-      "initial_safety_order_trigger": -0.018,
-      "max_safety_orders": 1,
-      "safety_order_step_scale": 1.13,
-      "safety_order_volume_scale": 1.6
+      "increment": 1.0005,
+      "initial_safety_order_trigger": -0.015,
+      "max_safety_orders": 4,
+      "safety_order_step_scale": 1.44,
+      "safety_order_volume_scale": 1.8
     },
     "sell": {},
     "protection": {
@@ -18,21 +18,21 @@
       "use_stop_protection": true
     },
     "roi": {
-      "0": 0.293,
-      "78": 0.08299999999999999,
-      "257": 0.059,
-      "605": 0
+      "0": 0.351,
+      "107": 0.153,
+      "261": 0.061,
+      "621": 0
     },
     "stoploss": {
       "stoploss": -0.02
     },
     "trailing": {
       "trailing_stop": true,
-      "trailing_stop_positive": 0.287,
-      "trailing_stop_positive_offset": 0.312,
+      "trailing_stop_positive": 0.298,
+      "trailing_stop_positive_offset": 0.352,
       "trailing_only_offset_is_reached": true
     }
   },
   "ft_stratparam_v": 1,
-  "export_time": "2024-06-30 14:01:50.147652+00:00"
+  "export_time": "2024-06-30 14:54:07.480615+00:00"
 }
