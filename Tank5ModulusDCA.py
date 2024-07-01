@@ -140,7 +140,7 @@ class Tank5ModulusDCA(IStrategy):
         current_candle = dataframe.iloc[-1].squeeze()
         # We need to leave most of the funds for possible further DCA orders
         if current_candle['sma'] < current_candle['200sma']:
-            print(proposed_stake)
+            #print(proposed_stake)
             calculated_stake = proposed_stake / (self.max_dca_multiplier.value + self.safety_order_reserve.value) 
             self.dp.send_msg(f'*** {pair} *** DCA MODE!!! Stake Amount: ${proposed_stake} reduced to {calculated_stake}')
             logger.info(f'*** {pair} *** DCA MODE!!! Stake Amount: ${proposed_stake} reduced to {calculated_stake}')
@@ -459,7 +459,7 @@ class Tank5ModulusDCA(IStrategy):
                 try:
                     df_pkl = pd.read_pickle(path)
                 except (EOFError, pickle.UnpicklingError) as e:
-                    print(f"Error reading pickle file: {e}")
+                    #print(f"Error reading pickle file: {e}")
                     df_pkl = dataframe.copy()
                     dataframe.to_pickle(path)
             else:
