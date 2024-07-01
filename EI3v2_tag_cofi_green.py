@@ -115,8 +115,8 @@ class EI3v2_tag_cofi_green(IStrategy):
     stoploss = -0.99
 
     # SMAOffset
-    base_nb_candles_buy = IntParameter(8, 20, default=buy_params['base_nb_candles_buy'], space='buy', optimize=False)
-    base_nb_candles_sell = IntParameter(8, 20, default=sell_params['base_nb_candles_sell'], space='sell', optimize=False)
+    base_nb_candles_buy = IntParameter(8, 20, default=buy_params['base_nb_candles_buy'], space='buy', optimize=True)
+    base_nb_candles_sell = IntParameter(8, 20, default=sell_params['base_nb_candles_sell'], space='sell', optimize=True)
     low_offset = DecimalParameter(0.985, 0.995, default=buy_params['low_offset'], space='buy', optimize=True)
     high_offset = DecimalParameter(1.005, 1.015, default=sell_params['high_offset'], space='sell', optimize=True)
     high_offset_2 = DecimalParameter(1.010, 1.020, default=sell_params['high_offset_2'], space='sell', optimize=True)
@@ -132,7 +132,7 @@ class EI3v2_tag_cofi_green(IStrategy):
 
     ewo_low = DecimalParameter(-20.0, -8.0,default=buy_params['ewo_low'], space='buy', optimize=True)
     ewo_high = DecimalParameter(3.0, 3.4, default=buy_params['ewo_high'], space='buy', optimize=True)
-    rsi_buy = IntParameter(30, 70, default=buy_params['rsi_buy'], space='buy', optimize=False)
+    rsi_buy = IntParameter(30, 70, default=buy_params['rsi_buy'], space='buy', optimize=True)
 
     # Trailing stop:
     trailing_stop = True
@@ -141,7 +141,7 @@ class EI3v2_tag_cofi_green(IStrategy):
     trailing_only_offset_is_reached = True
 
     #cofi
-    is_optimize_cofi = False
+    is_optimize_cofi = True
     buy_ema_cofi = DecimalParameter(0.96, 0.98, default=0.97 , optimize = is_optimize_cofi)
     buy_fastk = IntParameter(20, 30, default=20, optimize = is_optimize_cofi)
     buy_fastd = IntParameter(20, 30, default=20, optimize = is_optimize_cofi)
