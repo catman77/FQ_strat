@@ -115,8 +115,8 @@ class EI4_t4c0s_V2(IStrategy):
     sl1 = DecimalParameter(-0.013, -0.005, default=-0.013, space='sell', optimize=True)
 
     # SMAOffset
-    base_nb_candles_buy = IntParameter(8, 30, default=buy_params['base_nb_candles_buy'], space='buy', optimize=False)
-    base_nb_candles_sell = IntParameter(8, 30, default=sell_params['base_nb_candles_sell'], space='sell', optimize=False)
+    base_nb_candles_buy = IntParameter(8, 30, default=buy_params['base_nb_candles_buy'], space='buy', optimize=True)
+    base_nb_candles_sell = IntParameter(8, 30, default=sell_params['base_nb_candles_sell'], space='sell', optimize=True)
     low_offset = DecimalParameter(0.985, 0.995, default=buy_params['low_offset'], space='buy', optimize=True)
     high_offset = DecimalParameter(1.005, 1.015, default=sell_params['high_offset'], space='sell', optimize=True)
     high_offset_2 = DecimalParameter(1.010, 1.020, default=sell_params['high_offset_2'], space='sell', optimize=True)

@@ -5,18 +5,18 @@
       "max_open_trades": 8
     },
     "buy": {
-      "atr": 5,
-      "bull_bear": 88,
-      "increment": 1.0008,
-      "max_dca_multiplier": 1.2,
-      "max_epa": 4,
-      "mod": 193,
-      "peaks": 44,
-      "safety_order_reserve": 0,
-      "sensitivity": 11,
-      "trend": 35.0,
-      "volatility": 45.1,
-      "window": 28
+      "atr": 3,
+      "bull_bear": 93,
+      "increment": 1.0019,
+      "max_dca_multiplier": 4.0,
+      "max_epa": 0,
+      "mod": 190,
+      "peaks": 43,
+      "safety_order_reserve": 10,
+      "sensitivity": 9,
+      "trend": 37.5,
+      "volatility": 32.3,
+      "window": 35
     },
     "sell": {},
     "protection": {
@@ -25,21 +25,21 @@
       "use_stop_protection": true
     },
     "roi": {
-      "0": 0.501,
-      "309": 0.154,
-      "776": 0.022,
-      "2194": 0
+      "0": 0.5489999999999999,
+      "211": 0.195,
+      "495": 0.068,
+      "1124": 0
     },
     "stoploss": {
-      "stoploss": -0.06
+      "stoploss": -0.302
     },
     "trailing": {
       "trailing_stop": true,
-      "trailing_stop_positive": 0.01,
-      "trailing_stop_positive_offset": 0.060000000000000005,
-      "trailing_only_offset_is_reached": true
+      "trailing_stop_positive": 0.043,
+      "trailing_stop_positive_offset": 0.072,
+      "trailing_only_offset_is_reached": false
     }
   },
   "ft_stratparam_v": 1,
-  "export_time": "2024-06-30 09:08:43.185813+00:00"
+  "export_time": "2024-07-02 05:51:05.182031+00:00"
 }

@@ -5,42 +5,42 @@
       "max_open_trades": 8
     },
     "buy": {
-      "base_nb_candles_buy": 12,
-      "buy_adx": 25,
-      "buy_ema_cofi": 0.968,
-      "buy_ewo_high": 5.877,
-      "buy_fastd": 26,
-      "buy_fastk": 24,
-      "ewo_high": 3.106,
-      "ewo_low": -9.864,
-      "lambo2_ema_14_factor": 0.994,
+      "base_nb_candles_buy": 10,
+      "buy_adx": 29,
+      "buy_ema_cofi": 0.963,
+      "buy_ewo_high": 7.316,
+      "buy_fastd": 24,
+      "buy_fastk": 26,
+      "ewo_high": 3.328,
+      "ewo_low": -10.434,
+      "lambo2_ema_14_factor": 1.008,
       "lambo2_rsi_14_limit": 54,
-      "lambo2_rsi_4_limit": 51,
-      "low_offset": 0.986,
-      "rsi_buy": 56
+      "lambo2_rsi_4_limit": 19,
+      "low_offset": 0.993,
+      "rsi_buy": 62
     },
     "sell": {
-      "base_nb_candles_sell": 20,
+      "base_nb_candles_sell": 16,
       "high_offset": 1.004,
-      "high_offset_2": 1.016
+      "high_offset_2": 1.018
     },
     "protection": {},
     "roi": {
-      "0": 0.242,
-      "35": 0.08,
-      "73": 0.04,
+      "0": 0.134,
+      "39": 0.076,
+      "50": 0.033,
       "105": 0
     },
     "stoploss": {
-      "stoploss": -0.027
+      "stoploss": -0.262
     },
     "trailing": {
       "trailing_stop": true,
-      "trailing_stop_positive": 0.267,
-      "trailing_stop_positive_offset": 0.28500000000000003,
+      "trailing_stop_positive": 0.085,
+      "trailing_stop_positive_offset": 0.183,
       "trailing_only_offset_is_reached": true
     }
   },
   "ft_stratparam_v": 1,
-  "export_time": "2024-07-01 22:27:18.547110+00:00"
+  "export_time": "2024-07-02 06:10:56.674148+00:00"
 }
