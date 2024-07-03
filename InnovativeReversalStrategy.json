@@ -5,30 +5,30 @@
       "max_open_trades": 18
     },
     "buy": {
-      "irm_threshold_high": 2.277,
-      "leverage_input_buy": 9.176
+      "irm_threshold_high": 4.166,
+      "leverage_input_buy": 4.193
     },
     "sell": {
-      "irm_threshold_low": -2.506,
-      "leverage_input_sell": 8.661
+      "irm_threshold_low": -2.382,
+      "leverage_input_sell": 8.992
     },
     "protection": {},
     "roi": {
-      "0": 0.20199999999999999,
-      "38": 0.059,
-      "82": 0.021,
-      "192": 0
+      "0": 0.648,
+      "287": 0.197,
+      "737": 0.075,
+      "1623": 0
     },
     "stoploss": {
-      "stoploss": -0.321
+      "stoploss": -0.155
     },
     "trailing": {
       "trailing_stop": true,
-      "trailing_stop_positive": 0.262,
-      "trailing_stop_positive_offset": 0.34500000000000003,
+      "trailing_stop_positive": 0.278,
+      "trailing_stop_positive_offset": 0.35600000000000004,
       "trailing_only_offset_is_reached": true
     }
   },
   "ft_stratparam_v": 1,
-  "export_time": "2024-07-02 13:50:19.558428+00:00"
+  "export_time": "2024-07-03 06:16:11.761493+00:00"
 }
