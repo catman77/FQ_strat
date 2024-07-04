@@ -17,7 +17,7 @@ from freqtrade.strategy import (DecimalParameter, IStrategy, IntParameter, infor
 
 class Insomnia_short(IStrategy):
     INTERFACE_VERSION = 3
-    can_short: bool = True
+    can_short: bool = False
     levarage_input = 10.0
     stoploss = -0.01
     trailing_stop = True
