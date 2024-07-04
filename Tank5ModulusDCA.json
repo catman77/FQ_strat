@@ -2,35 +2,35 @@
   "strategy_name": "Tank5ModulusDCA",
   "params": {
     "max_open_trades": {
-      "max_open_trades": 8
+      "max_open_trades": 12
     },
     "buy": {
-      "atr": 5,
-      "bull_bear": 80,
-      "increment": 1.0008,
-      "max_dca_multiplier": 1.4,
+      "atr": 3,
+      "bull_bear": 88,
+      "increment": 1.0009,
+      "max_dca_multiplier": 1.1,
       "max_epa": 4,
-      "mod": 186,
-      "peaks": 42,
-      "safety_order_reserve": 1,
-      "sensitivity": 14,
-      "trend": 39.7,
+      "mod": 197,
+      "peaks": 32,
+      "safety_order_reserve": 0,
+      "sensitivity": 11,
+      "trend": 25.1,
       "use0": true,
-      "use1": false,
+      "use1": true,
       "use2": true,
-      "use3": false,
+      "use3": true,
       "use4": true,
       "use5": false,
-      "volatility": 41.3,
-      "window": 33
+      "volatility": 40.2,
+      "window": 60
     },
     "sell": {
-      "use10": true,
-      "use11": true,
+      "use10": false,
+      "use11": false,
       "use6": false,
       "use7": true,
       "use8": true,
-      "use9": true
+      "use9": false
     },
     "protection": {
       "cooldown_lookback": 1,
@@ -38,21 +38,21 @@
       "use_stop_protection": true
     },
     "roi": {
-      "0": 0.196,
-      "33": 0.07600000000000001,
-      "54": 0.035,
-      "79": 0
+      "0": 0.15700000000000003,
+      "10": 0.07300000000000001,
+      "36": 0.035,
+      "132": 0
     },
     "stoploss": {
-      "stoploss": -0.287
+      "stoploss": -0.286
     },
     "trailing": {
       "trailing_stop": true,
-      "trailing_stop_positive": 0.077,
-      "trailing_stop_positive_offset": 0.094,
-      "trailing_only_offset_is_reached": false
+      "trailing_stop_positive": 0.159,
+      "trailing_stop_positive_offset": 0.166,
+      "trailing_only_offset_is_reached": true
     }
   },
   "ft_stratparam_v": 1,
-  "export_time": "2024-07-01 14:09:18.404938+00:00"
+  "export_time": "2024-07-04 05:42:28.507263+00:00"
 }

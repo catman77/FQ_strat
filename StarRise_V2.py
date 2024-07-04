@@ -163,7 +163,7 @@ class StarRise_strat(IStrategy):
         last_candle = dataframe.iloc[-1].squeeze()
         if exit_reason == 'roi' and last_candle['min_l'] > last_candle['max_l'] * 3:
             return False
-    
+        return True
     def populate_entry_trend(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
         # is_crash_1 = (
         #         (dataframe['tpct_change_1'] < 0.08) &

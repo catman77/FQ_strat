@@ -2,21 +2,21 @@
   "strategy_name": "Tank1Modulus",
   "params": {
     "max_open_trades": {
-      "max_open_trades": 8
+      "max_open_trades": 12
     },
     "buy": {
-      "atr": 3,
-      "bull_bear": 93,
-      "increment": 1.0019,
-      "max_dca_multiplier": 4.0,
-      "max_epa": 0,
-      "mod": 190,
-      "peaks": 43,
-      "safety_order_reserve": 10,
-      "sensitivity": 9,
-      "trend": 37.5,
-      "volatility": 32.3,
-      "window": 35
+      "atr": 5,
+      "bull_bear": 108,
+      "increment": 1.0014,
+      "max_dca_multiplier": 1.2,
+      "max_epa": 2,
+      "mod": 196,
+      "peaks": 60,
+      "safety_order_reserve": 0,
+      "sensitivity": 14,
+      "trend": 33.5,
+      "volatility": 49.2,
+      "window": 67
     },
     "sell": {},
     "protection": {
@@ -25,21 +25,21 @@
       "use_stop_protection": true
     },
     "roi": {
-      "0": 0.5489999999999999,
-      "211": 0.195,
-      "495": 0.068,
-      "1124": 0
+      "0": 0.45600000000000007,
+      "467": 0.18000000000000002,
+      "920": 0.04,
+      "1135": 0
     },
     "stoploss": {
-      "stoploss": -0.302
+      "stoploss": -0.23
     },
     "trailing": {
       "trailing_stop": true,
-      "trailing_stop_positive": 0.043,
-      "trailing_stop_positive_offset": 0.072,
+      "trailing_stop_positive": 0.01,
+      "trailing_stop_positive_offset": 0.015,
       "trailing_only_offset_is_reached": false
     }
   },
   "ft_stratparam_v": 1,
-  "export_time": "2024-07-02 05:51:05.182031+00:00"
+  "export_time": "2024-07-04 06:34:08.831984+00:00"
 }
