@@ -454,7 +454,7 @@ class Tank1Modulus(IStrategy):
         # Save extrema to pickle file.
         if (self.dp.runmode.value in ('live', 'dry_run')):
             base = pair.split('/')
-            path = os.path.join('./user_data/pkl', f"{base[0]}.pkl")
+            path = os.path.join('user_data/pkl', f"{base[0]}.pkl")
             if os.path.exists(path):
                 df_pkl = pd.read_pickle(path)
                 # print(df_pkl.tail(5))
