@@ -1,37 +1,40 @@
 {
-  "strategy_name": "SampleStrategy",
+  "strategy_name": "Insomnia_short",
   "params": {
-    "roi": {
-      "0": 0.385
-    },
-    "stoploss": {
-      "stoploss": -0.3
-    },
-    "trailing": {
-      "trailing_stop": false,
-      "trailing_stop_positive": 0.28,
-      "trailing_stop_positive_offset": 0.3,
-      "trailing_only_offset_is_reached": false
-    },
     "max_open_trades": {
-      "max_open_trades": 5
+      "max_open_trades": 12
     },
     "buy": {
       "buy_factor": 3,
       "buy_period": 10,
       "buy_rsi": 14,
       "buy_rsi_compare_short": 75,
-      "buy_rsi_compare_long": 42,
-      "long_multiplier": 0.982,
-      "short_multiplier_1": 1.0
+      "buy_rsi_compare_long": 59,
+      "long_multiplier": 0.976,
+      "short_multiplier_1": 1.016
     },
     "sell": {
+      "sell_decr_pos": 0.137,
       "sell_rsi_compare_long": 71,
-      "sell_rsi_compare_short": 30,
-      "sell_decr_pos": 0.137
+      "sell_rsi_compare_short": 30
     },
-    "protection": {}
+    "protection": {},
+    "roi": {
+      "0": 0.405,
+      "162": 0.159,
+      "846": 0.04,
+      "2236": 0
+    },
+    "stoploss": {
+      "stoploss": -0.259
+    },
+    "trailing": {
+      "trailing_stop": true,
+      "trailing_stop_positive": 0.16,
+      "trailing_stop_positive_offset": 0.223,
+      "trailing_only_offset_is_reached": true
+    }
   },
   "ft_stratparam_v": 1,
-  "export_time": "2024-07-02 14:52:25.231449+00:00"
+  "export_time": "2024-07-04 14:11:49.841775+00:00"
 }
