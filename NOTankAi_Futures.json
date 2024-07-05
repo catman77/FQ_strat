@@ -1,0 +1,38 @@
+{
+  "strategy_name": "NOTankAi_Futures",
+  "params": {
+    "max_open_trades": {
+      "max_open_trades": 4
+    },
+    "buy": {
+      "increment": 1.002,
+      "initial_safety_order_trigger": -0.012,
+      "max_safety_orders": 3,
+      "safety_order_step_scale": 1.33,
+      "safety_order_volume_scale": 1.9
+    },
+    "sell": {},
+    "protection": {
+      "cooldown_lookback": 1,
+      "stop_duration": 4,
+      "use_stop_protection": true
+    },
+    "roi": {
+      "0": 0.41400000000000003,
+      "110": 0.10500000000000001,
+      "149": 0.055,
+      "231": 0
+    },
+    "stoploss": {
+      "stoploss": -0.079
+    },
+    "trailing": {
+      "trailing_stop": true,
+      "trailing_stop_positive": 0.302,
+      "trailing_stop_positive_offset": 0.357,
+      "trailing_only_offset_is_reached": true
+    }
+  },
+  "ft_stratparam_v": 1,
+  "export_time": "2024-07-05 08:40:06.035559+00:00"
+}
