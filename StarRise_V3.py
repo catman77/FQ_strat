@@ -41,33 +41,13 @@ def williams_r(dataframe: DataFrame, period: int=14) -> Series:
     WR = Series((highest_high - dataframe['close']) / (highest_high - lowest_low), name=f'{period} Williams %R')
     return WR * -100
 
-class StarRise_strat(IStrategy):
+class StarRise_strat3(IStrategy):
     INTERFACE_VERSION = 3
     use_exit_signal = True
     exit_profit_only = True
     # Optimal timeframe for the strategy
     timeframe = '5m'
 
-
-    """
-    Designed to use with StarRise DCA settings   
-    TTP: 1.1%(0.2%), BO: 38.0 USDT, SO: 38.0 USDT, OS: 1.2, SS: 1.13, MAD: 2, SOS: 1.6, MSTC: 11  
-    2021/12 Crash      
-    ========================================================== BUY TAG STATS ===========================================================
-    |   TAG |   Buys |   Avg Profit % |   Cum Profit % |   Tot Profit USDT |   Tot Profit % |   Avg Duration |   Win  Draw  Loss  Win% |    
-    |-------+--------+----------------+----------------+-------------------+----------------+----------------+-------------------------|  
-    | TOTAL |    412 |           1.14 |         469.43 |          1157.492 |           0.45 |        5:04:00 |   412     0     0   100 | 
-    2021/05 Crash\n       
-    ========================================================== BUY TAG STATS ===========================================================    
-    |   TAG |   Buys |   Avg Profit % |   Cum Profit % |   Tot Profit USDT |   Tot Profit % |   Avg Duration |   Win  Draw  Loss  Win% |    
-    |-------+--------+----------------+----------------+-------------------+----------------+----------------+-------------------------|    
-    | TOTAL |    197 |           1.25 |         245.79 |           631.840 |           0.25 |        4:22:00 |   197     0     0   100 |    
-    2021/09 - 2021/11 Bull       
-    ========================================================== BUY TAG STATS ===========================================================    
-    |   TAG |   Buys |   Avg Profit % |   Cum Profit % |   Tot Profit USDT |   Tot Profit % |   Avg Duration |   Win  Draw  Loss  Win% |    
-    |-------+--------+----------------+----------------+-------------------+----------------+----------------+-------------------------|    
-    | TOTAL |    327 |           1.30 |         424.98 |           961.187 |           0.37 |        3:26:00 |   326     0     1  99.7 |
-    """
 
     # Minimal ROI designed for the strategy.
     minimal_roi = {}
@@ -89,6 +69,7 @@ class StarRise_strat(IStrategy):
     use3 = BooleanParameter(default=True, space='buy', load=True)
     use4 = BooleanParameter(default=True, space='buy', load=True)
     use5 = BooleanParameter(default=True, space='buy', load=True)
+    use6 = BooleanParameter(default=True, space='buy', load=True)
 
     # Select Entry Parameters
     window = IntParameter(12, 70, default=16, space='buy', optimize=True, load=True)
@@ -181,9 +162,11 @@ class StarRise_strat(IStrategy):
         dataframe['move_mean_2x'] = dataframe['move'].mean() * 2.6
 
         # Close threshold 
-        dataframe['threshold_mean'] = dataframe['close'].rolling(288).max() * (1 + dataframe['move_mean'])
-        dataframe['threshold_1'] = dataframe['close'].rolling(288).max() * (1 + dataframe['move_mean_x'])
-        dataframe['threshold_2'] = dataframe['close'].rolling(288).max() * (1 + dataframe['move_mean_2x'])
+        dataframe['threshold_mean'] = dataframe['close'] * (1 + dataframe['move_mean'])
+        dataframe['threshold_1'] = dataframe['close'] * (1 + dataframe['move_mean_x'])
+        dataframe['threshold_2'] = dataframe['close'] * (1 + dataframe['move_mean_2x'])
+        dataframe['max288'] = dataframe['close'].rolling(288).max()
+        dataframe['close3'] = dataframe['close'] * 1.03
 
         # RSI
         dataframe['rsi'] = ta.RSI(dataframe, timeperiod=14)
@@ -191,7 +174,7 @@ class StarRise_strat(IStrategy):
         dataframe['rsi_112'] = ta.RSI(dataframe, timeperiod=112)
 
         # Bollinger bands
-        bollinger1 = qtpylib.bollinger_bands(qtpylib.typical_price(dataframe), window=17, stds=1)
+        bollinger1 = qtpylib.bollinger_bands(qtpylib.typical_price(dataframe), window=17, stds=2)
         dataframe['bb_lowerband'] = bollinger1['lower']
         dataframe['bb_middleband'] = bollinger1['mid']
         dataframe['bb_upperband'] = bollinger1['upper']
@@ -308,7 +291,6 @@ class StarRise_strat(IStrategy):
             (dataframe['r_14'] < self.wr_buy.value) & 
             (dataframe['cti'] < self.cti_buy.value) & 
             (dataframe['adx'] > self.adx_buy.value) & 
-            (dataframe['mama_diff_1h'] > self.mama1_buy.value) & 
             (dataframe['mama'] > dataframe['fama']) & 
             (dataframe['sma_50'] > dataframe['sma_200'] * 1.01) & 
             (dataframe['mama_1h'] > dataframe['fama_1h'] * 1.01) & 
@@ -372,7 +354,6 @@ class StarRise_strat(IStrategy):
             (dataframe['r_14'] < self.wr_buy.value) & 
             (dataframe['cti'] < self.cti_buy.value) & 
             (dataframe['adx'] > self.adx_buy.value) & 
-            (dataframe['mama_diff_1h'] > self.mama1_buy.value) & 
             (dataframe['mama'] > dataframe['fama']) & 
             (dataframe['sma_50'] > dataframe['sma_200'] * 1.01) & 
             (dataframe['mama_1h'] > dataframe['fama_1h'] * 1.01) & 
@@ -389,11 +370,32 @@ class StarRise_strat(IStrategy):
         dataframe.loc[is_dip_5, 'enter_long'] = 1
         dataframe.loc[is_dip_5, 'enter_tag'] = 'is dip 5'
 
+        is_dip_6 = (
+            (dataframe['close'] < dataframe['mama']) & 
+            (dataframe['r_14'] < self.wr_buy.value) & 
+            (dataframe['cti'] < self.cti_buy.value) & 
+            (dataframe['adx'] > self.adx_buy.value) & 
+            (dataframe['mama'] > dataframe['fama']) & 
+            (dataframe['sma_50'] > dataframe['sma_200'] * 1.01) & 
+            (dataframe['mama_1h'] > dataframe['fama_1h'] * 1.01) & 
+            (dataframe['rsi_84'] < self.rsi84_buy.value) & 
+            (dataframe['rsi_112'] < self.rsi112_buy.value) & 
+            (dataframe['cti_40_1h'] < self.cti1_buy.value) & 
+            (dataframe['r_96_1h'] < self.wr1_buy.value) & 
+            (dataframe['mama_diff_1h'] < dataframe['threshold_2']) & 
+            (dataframe['mama_diff_1h'] > self.mama1_buy.value) & 
+            (dataframe['close'].rolling(288).max() >= dataframe['close3']) &
+            (dataframe['volume'] > 0) &
+            (self.use6.value == True) 
+        )
+        dataframe.loc[is_dip_6, 'enter_long'] = 1
+        dataframe.loc[is_dip_6, 'enter_tag'] = 'is dip 6'
+
         return dataframe
 
     def populate_exit_trend(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
         is_bb = (
-            (dataframe['close'] > dataframe['bb_upperband'] * 0.999) & 
+            (dataframe['close'] > dataframe['bb_upperband']) & 
             (dataframe['rsi'] > 70) &
             (dataframe['volume'] > 0) 
             )
@@ -402,7 +404,7 @@ class StarRise_strat(IStrategy):
 
         return dataframe
 
-class StarRise_V3(StarRise_strat):
+class StarRise_V3(StarRise_strat3):
     INTERFACE_VERSION = 3
     # Original idea by @MukavaValkku, code by @tirail and @stash86
     #
