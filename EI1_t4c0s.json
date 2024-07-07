@@ -1,55 +1,58 @@
 {
   "strategy_name": "EI1_t4c0s",
   "params": {
-    "roi": {
-      "0": 0.99
-    },
-    "stoploss": {
-      "stoploss": -0.99
-    },
-    "trailing": {
-      "trailing_stop": false,
-      "trailing_stop_positive": null,
-      "trailing_stop_positive_offset": 0.0,
-      "trailing_only_offset_is_reached": false
-    },
     "max_open_trades": {
-      "max_open_trades": 4
+      "max_open_trades": 18
     },
     "buy": {
       "atr_length": 12,
-      "base_nb_candles_buy": 20,
-      "buy_adx": 29,
-      "buy_ema_cofi": 0.967,
-      "buy_fastd": 20,
-      "buy_fastk": 25,
-      "fast_ewo": 50,
-      "increment": 1.0007,
-      "lambo2_ema_14_factor": 0.88,
-      "lambo2_rsi_14_limit": 33,
-      "lambo2_rsi_4_limit": 12,
-      "low_offset": 0.98,
-      "rsi_buy": 69,
-      "slow_ewo": 200,
-      "window": 19
+      "base_nb_candles_buy": 28,
+      "buy_adx": 21,
+      "buy_ema_cofi": 0.962,
+      "buy_fastd": 28,
+      "buy_fastk": 27,
+      "fast_ewo": 33,
+      "increment": 1.0005,
+      "lambo2_ema_14_factor": 0.898,
+      "lambo2_rsi_14_limit": 18,
+      "lambo2_rsi_4_limit": 23,
+      "low_offset": 0.814,
+      "rsi_buy": 61,
+      "slow_ewo": 111,
+      "window": 24
     },
     "sell": {
-      "base_nb_candles_sell": 26,
-      "day1": 4,
-      "day2": 5,
-      "day3": 8,
-      "day4": 8,
-      "high_offset": 1.046,
-      "high_offset_2": 1.14,
-      "moon": 1.4,
-      "start": 0.1,
-      "unclog1": 0.15,
-      "unclog2": 0.06,
-      "unclog3": 0.17,
-      "unclog4": 0.04
+      "base_nb_candles_sell": 20,
+      "day1": 2,
+      "day2": 3,
+      "day3": 7,
+      "day4": 10,
+      "high_offset": 1.089,
+      "high_offset_2": 1.155,
+      "moon": 0.9,
+      "start": 0.13,
+      "unclog1": 0.04,
+      "unclog2": 0.12,
+      "unclog3": 0.07,
+      "unclog4": 0.07
     },
-    "protection": {}
+    "protection": {},
+    "roi": {
+      "0": 0.265,
+      "377": 0.2,
+      "1031": 0.069,
+      "2175": 0
+    },
+    "stoploss": {
+      "stoploss": -0.246
+    },
+    "trailing": {
+      "trailing_stop": true,
+      "trailing_stop_positive": 0.156,
+      "trailing_stop_positive_offset": 0.225,
+      "trailing_only_offset_is_reached": true
+    }
   },
   "ft_stratparam_v": 1,
-  "export_time": "2024-07-06 05:39:53.264471+00:00"
+  "export_time": "2024-07-06 06:46:03.442696+00:00"
 }
