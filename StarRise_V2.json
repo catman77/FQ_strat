@@ -1,5 +1,5 @@
 {
-  "strategy_name": "StarRise_strat",
+  "strategy_name": "StarRise_V2",
   "params": {
     "roi": {
       "0": 0.005
