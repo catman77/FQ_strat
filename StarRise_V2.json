@@ -1,5 +1,5 @@
 {
-  "strategy_name": "StarRise_V2",
+  "strategy_name": "StarRise_strat",
   "params": {
     "roi": {
       "0": 0.005
@@ -18,14 +18,14 @@
     },
     "buy": {},
     "sell": {
-      "pHSL": -0.152,
+      "pHSL": -0.423,
       "pPF_1": 0.008,
-      "pPF_2": 0.071,
+      "pPF_2": 0.041,
       "pSL_1": 0.008,
-      "pSL_2": 0.067
+      "pSL_2": 0.033
     },
     "protection": {}
   },
   "ft_stratparam_v": 1,
-  "export_time": "2024-07-07 10:02:18.118429+00:00"
+  "export_time": "2024-07-08 12:05:48.821567+00:00"
 }
