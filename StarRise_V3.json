@@ -1,5 +1,5 @@
 {
-  "strategy_name": "StarRise_strat3",
+  "strategy_name": "StarRise_V3",
   "params": {
     "buy": {
       "adx_buy": 29,
