@@ -1,47 +1,52 @@
 {
   "strategy_name": "StarRise_strat3",
   "params": {
-    "roi": {},
-    "stoploss": {
-      "stoploss": -0.2
-    },
-    "trailing": {
-      "trailing_stop": false,
-      "trailing_stop_positive": null,
-      "trailing_stop_positive_offset": 0.0,
-      "trailing_only_offset_is_reached": false
-    },
     "buy": {
-      "adx_buy": 22,
-      "cti1_buy": 0.63,
-      "cti_buy": 0.86,
-      "mama1_buy": -0.004,
-      "mama2_buy": 0.013,
-      "rsi112_buy": 56,
-      "rsi84_buy": 60,
-      "use0": false,
+      "adx_buy": 29,
+      "cti1_buy": 0.77,
+      "cti_buy": 0.74,
+      "mama1_buy": -0.007,
+      "mama2_buy": 0.017,
+      "rsi112_buy": 59,
+      "rsi84_buy": 57,
+      "use0": true,
       "use1": false,
       "use2": true,
       "use3": false,
-      "use4": true,
-      "use5": true,
+      "use4": false,
+      "use5": false,
       "use6": true,
-      "window": 12,
-      "wr1_buy": -13,
-      "wr_buy": -48
+      "window": 58,
+      "wr1_buy": -32,
+      "wr_buy": -50
     },
     "sell": {
-      "pHSL": -0.254,
-      "pPF_1": 0.011,
-      "pPF_2": 0.054,
-      "pSL_1": 0.017,
-      "pSL_2": 0.038
+      "pHSL": -0.093,
+      "pPF_1": 0.009,
+      "pPF_2": 0.073,
+      "pSL_1": 0.009,
+      "pSL_2": 0.068
     },
     "protection": {},
+    "roi": {
+      "0": 0.256,
+      "26": 0.10300000000000001,
+      "40": 0.033,
+      "143": 0
+    },
+    "stoploss": {
+      "stoploss": -0.029
+    },
+    "trailing": {
+      "trailing_stop": true,
+      "trailing_stop_positive": 0.27,
+      "trailing_stop_positive_offset": 0.342,
+      "trailing_only_offset_is_reached": true
+    },
     "max_open_trades": {
       "max_open_trades": 1
     }
   },
   "ft_stratparam_v": 1,
-  "export_time": "2024-07-09 15:14:29.830490+00:00"
+  "export_time": "2024-07-09 21:45:55.768326+00:00"
 }

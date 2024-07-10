@@ -54,7 +54,6 @@ class StarRise_strat3(IStrategy):
     # Sell hyperspace params:
     # 1.1% TTP
     sell_params = {'pHSL': -0.18, 'pPF_1': 0.019, 'pPF_2': 0.054, 'pSL_1': 0.019, 'pSL_2': 0.053}
-    sell_params = {'pHSL': -0.48, 'pPF_1': 0.01, 'pPF_2': 0.048, 'pSL_1': 0.01, 'pSL_2': 0.063}
 
     # Max Stoploss Deviation -0.349
     stoploss = -0.20
@@ -83,18 +82,6 @@ class StarRise_strat3(IStrategy):
     cti1_buy = DecimalParameter(0.6, 0.8, default=0.73, decimals=2, space='buy', load=True)
     wr1_buy = IntParameter(-80, -6, default=-6, space='buy', load=True)
     mama2_buy = DecimalParameter(0.01, 0.03, default= 0.027, decimals=3, space='buy', load=True)
-    
-    window = IntParameter(12, 70, default=26, space='buy', optimize=True, load=True)
-    wr_buy = IntParameter(-80, -30, default=-19, space='buy', load=True)
-    cti_buy = DecimalParameter(0.0, 5.0, default=2.86, decimals=2, space='buy', load=True)
-    adx_buy = IntParameter(15, 30, default=26, space='buy', load=True)
-    mama1_buy = DecimalParameter(-0.01, 0.01, default= 0.005, decimals=3, space='buy', load=True)
-    rsi84_buy = IntParameter(40, 60, default=58, space='buy', load=True)
-    rsi112_buy = IntParameter(40, 60, default=55, space='buy', load=True)
-    cti1_buy = DecimalParameter(0.6, 0.8, default=0.6, decimals=2, space='buy', load=True)
-    wr1_buy = IntParameter(-80, -6, default=-19, space='buy', load=True)
-    mama2_buy = DecimalParameter(0.01, 0.03, default= 0.02, decimals=3, space='buy', load=True)
-    
 
     # hard stoploss profit
     pHSL = DecimalParameter(-0.5, -0.04, default=-0.08, decimals=3, space='sell', load=True)
