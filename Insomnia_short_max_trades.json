@@ -2,39 +2,39 @@
   "strategy_name": "Insomnia_short",
   "params": {
     "max_open_trades": {
-      "max_open_trades": 3
+      "max_open_trades": 4
     },
     "buy": {
       "buy_factor": 3,
       "buy_period": 10,
       "buy_rsi": 14,
       "buy_rsi_compare_short": 68,
-      "buy_rsi_compare_long": 21,
-      "long_multiplier": 0.976,
-      "short_multiplier_1": 1.01
+      "buy_rsi_compare_long": 65,
+      "long_multiplier": 0.987,
+      "short_multiplier_1": 1.0
     },
     "sell": {
       "sell_rsi_compare_long": 70,
       "sell_rsi_compare_short": 28,
-      "sell_decr_pos": 0.012
+      "sell_decr_pos": 0.277
     },
     "protection": {},
     "roi": {
-      "0": 0.353,
-      "214": 0.203,
-      "351": 0.087,
-      "1692": 0
+      "0": 0.306,
+      "408": 0.149,
+      "1081": 0.026,
+      "2017": 0
     },
     "stoploss": {
-      "stoploss": -0.278
+      "stoploss": -0.338
     },
     "trailing": {
       "trailing_stop": true,
-      "trailing_stop_positive": 0.01,
-      "trailing_stop_positive_offset": 0.054,
-      "trailing_only_offset_is_reached": false
+      "trailing_stop_positive": 0.011,
+      "trailing_stop_positive_offset": 0.061,
+      "trailing_only_offset_is_reached": true
     }
   },
   "ft_stratparam_v": 1,
-  "export_time": "2024-07-12 15:17:34.157938+00:00"
+  "export_time": "2024-07-11 16:48:00.097203+00:00"
 }
