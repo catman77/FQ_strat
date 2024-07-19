@@ -11,42 +11,42 @@
       "max_open_trades": 1
     },
     "buy": {
-      "adx_buy": 28,
-      "cti1_buy": 0.63,
-      "cti_buy": 3.17,
-      "mama1_buy": -0.005,
-      "mama2_buy": 0.025,
-      "rsi112_buy": 56,
-      "rsi84_buy": 59,
-      "use0": true,
-      "use1": false,
+      "adx_buy": 21,
+      "cti1_buy": 0.62,
+      "cti_buy": 3.74,
+      "mama1_buy": 0.008,
+      "mama2_buy": 0.02,
+      "rsi112_buy": 57,
+      "rsi84_buy": 57,
+      "use0": false,
+      "use1": true,
       "use2": true,
-      "use3": false,
+      "use3": true,
       "use4": false,
       "use5": true,
       "use6": true,
-      "window": 69,
+      "window": 32,
       "wr1_buy": -12,
-      "wr_buy": -61
+      "wr_buy": -60
     },
     "sell": {
-      "pHSL": -0.459,
-      "pPF_1": 0.009,
-      "pPF_2": 0.062,
-      "pSL_1": 0.011,
-      "pSL_2": 0.047
+      "pHSL": -0.173,
+      "pPF_1": 0.012,
+      "pPF_2": 0.066,
+      "pSL_1": 0.016,
+      "pSL_2": 0.048
     },
     "protection": {},
     "roi": {
-      "0": 0.126,
-      "31": 0.073,
-      "76": 0.03,
-      "126": 0
+      "0": 0.07400000000000001,
+      "23": 0.04,
+      "82": 0.015,
+      "199": 0
     },
     "stoploss": {
-      "stoploss": -0.137
+      "stoploss": -0.32
     }
   },
   "ft_stratparam_v": 1,
-  "export_time": "2024-07-18 21:31:52.903931+00:00"
+  "export_time": "2024-07-18 22:41:33.474689+00:00"
 }
