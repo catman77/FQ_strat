@@ -1,0 +1,32 @@
+{
+  "strategy_name": "NOTankAi_15",
+  "params": {
+    "trailing": {
+      "trailing_stop": false,
+      "trailing_stop_positive": null,
+      "trailing_stop_positive_offset": 0.0,
+      "trailing_only_offset_is_reached": false
+    },
+    "max_open_trades": {
+      "max_open_trades": 8
+    },
+    "buy": {},
+    "sell": {},
+    "protection": {
+      "cooldown_lookback": 1,
+      "stop_duration": 4,
+      "use_stop_protection": true
+    },
+    "roi": {
+      "0": 0.399,
+      "113": 0.149,
+      "268": 0.059,
+      "510": 0
+    },
+    "stoploss": {
+      "stoploss": -0.021
+    }
+  },
+  "ft_stratparam_v": 1,
+  "export_time": "2024-07-23 12:35:54.940504+00:00"
+}
